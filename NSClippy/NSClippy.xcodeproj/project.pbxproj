@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24BAAD6E16EB7CAB00E4A0F8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */; };
+		24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */; };
+		24D47D1416E9197500901848 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1316E9197500901848 /* UIKit.framework */; };
+		24D47D1616E9197500901848 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1516E9197500901848 /* Foundation.framework */; };
+		24D47D1816E9197500901848 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1716E9197500901848 /* CoreGraphics.framework */; };
+		24D47D1E16E9197500901848 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D1C16E9197500901848 /* InfoPlist.strings */; };
+		24D47D2016E9197500901848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D1F16E9197500901848 /* main.m */; };
+		24D47D2416E9197500901848 /* WZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D2316E9197500901848 /* WZAppDelegate.m */; };
+		24D47D2616E9197500901848 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2516E9197500901848 /* Default.png */; };
+		24D47D2816E9197500901848 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2716E9197500901848 /* Default@2x.png */; };
+		24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2916E9197500901848 /* Default-568h@2x.png */; };
+		24D47D3316E91F5F00901848 /* WZSpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3216E91F5F00901848 /* WZSpriteLayer.m */; };
+		24D47D3516E91F7100901848 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D3416E91F7100901848 /* QuartzCore.framework */; };
+		24D47D3816E922CF00901848 /* Richter.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3716E922CF00901848 /* Richter.png */; };
+		24D47D3B16E922ED00901848 /* NSClippy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3A16E922ED00901848 /* NSClippy.m */; };
+		24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3E16E9249E00901848 /* iPad.storyboard */; };
+		24D47D4216E924C100901848 /* WZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4116E924C100901848 /* WZMainViewController.m */; };
+		24D47D4416E925AB00901848 /* Clippy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D4316E925AB00901848 /* Clippy.png */; };
+		24D47D4716E9271D00901848 /* WZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4616E9271D00901848 /* WZAnimation.m */; };
+		24D47D4A16E9284500901848 /* WZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4916E9284500901848 /* WZFrame.m */; };
+		24D47D4D16EB522B00901848 /* Clippy.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D4C16EB522B00901848 /* Clippy.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		24BAAD7116ECD1BA00E4A0F8 /* WZBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBranch.h; sourceTree = "<group>"; };
+		24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBranch.m; sourceTree = "<group>"; };
+		24D47D1016E9197500901848 /* NSClippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSClippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24D47D1316E9197500901848 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		24D47D1516E9197500901848 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		24D47D1716E9197500901848 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		24D47D1B16E9197500901848 /* NSClippy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSClippy-Info.plist"; sourceTree = "<group>"; };
+		24D47D1D16E9197500901848 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		24D47D1F16E9197500901848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24D47D2116E9197500901848 /* NSClippy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSClippy-Prefix.pch"; sourceTree = "<group>"; };
+		24D47D2216E9197500901848 /* WZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZAppDelegate.h; sourceTree = "<group>"; };
+		24D47D2316E9197500901848 /* WZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WZAppDelegate.m; sourceTree = "<group>"; };
+		24D47D2516E9197500901848 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		24D47D2716E9197500901848 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		24D47D2916E9197500901848 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		24D47D3116E91F5F00901848 /* WZSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZSpriteLayer.h; sourceTree = "<group>"; };
+		24D47D3216E91F5F00901848 /* WZSpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZSpriteLayer.m; sourceTree = "<group>"; };
+		24D47D3416E91F7100901848 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		24D47D3716E922CF00901848 /* Richter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Richter.png; sourceTree = "<group>"; };
+		24D47D3916E922ED00901848 /* NSClippy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSClippy.h; sourceTree = "<group>"; };
+		24D47D3A16E922ED00901848 /* NSClippy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSClippy.m; sourceTree = "<group>"; };
+		24D47D3E16E9249E00901848 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		24D47D4016E924C100901848 /* WZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMainViewController.h; sourceTree = "<group>"; };
+		24D47D4116E924C100901848 /* WZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMainViewController.m; sourceTree = "<group>"; };
+		24D47D4316E925AB00901848 /* Clippy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clippy.png; path = ../Images/Clippy.png; sourceTree = "<group>"; };
+		24D47D4516E9271D00901848 /* WZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAnimation.h; sourceTree = "<group>"; };
+		24D47D4616E9271D00901848 /* WZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAnimation.m; sourceTree = "<group>"; };
+		24D47D4816E9284500901848 /* WZFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZFrame.h; sourceTree = "<group>"; };
+		24D47D4916E9284500901848 /* WZFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZFrame.m; sourceTree = "<group>"; };
+		24D47D4C16EB522B00901848 /* Clippy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Clippy.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24D47D0D16E9197500901848 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24BAAD6E16EB7CAB00E4A0F8 /* ImageIO.framework in Frameworks */,
+				24D47D3516E91F7100901848 /* QuartzCore.framework in Frameworks */,
+				24D47D1416E9197500901848 /* UIKit.framework in Frameworks */,
+				24D47D1616E9197500901848 /* Foundation.framework in Frameworks */,
+				24D47D1816E9197500901848 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24D47D0716E9197500901848 = {
+			isa = PBXGroup;
+			children = (
+				24D47D1916E9197500901848 /* NSClippy */,
+				24D47D3016E91D5500901848 /* Example */,
+			);
+			sourceTree = "<group>";
+		};
+		24D47D1116E9197500901848 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D1016E9197500901848 /* NSClippy.app */,
+			);
+			name = Products;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		24D47D1216E9197500901848 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */,
+				24D47D3416E91F7100901848 /* QuartzCore.framework */,
+				24D47D1316E9197500901848 /* UIKit.framework */,
+				24D47D1516E9197500901848 /* Foundation.framework */,
+				24D47D1716E9197500901848 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		24D47D1916E9197500901848 /* NSClippy */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D4B16EB51F700901848 /* Assets */,
+				24D47D3616E921A500901848 /* Images */,
+				24D47D3916E922ED00901848 /* NSClippy.h */,
+				24D47D3A16E922ED00901848 /* NSClippy.m */,
+				24D47D3116E91F5F00901848 /* WZSpriteLayer.h */,
+				24D47D3216E91F5F00901848 /* WZSpriteLayer.m */,
+				24D47D4516E9271D00901848 /* WZAnimation.h */,
+				24D47D4616E9271D00901848 /* WZAnimation.m */,
+				24D47D4816E9284500901848 /* WZFrame.h */,
+				24D47D4916E9284500901848 /* WZFrame.m */,
+				24BAAD7116ECD1BA00E4A0F8 /* WZBranch.h */,
+				24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */,
+			);
+			path = NSClippy;
+			sourceTree = "<group>";
+		};
+		24D47D1A16E9197500901848 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D1B16E9197500901848 /* NSClippy-Info.plist */,
+				24D47D1C16E9197500901848 /* InfoPlist.strings */,
+				24D47D1F16E9197500901848 /* main.m */,
+				24D47D2116E9197500901848 /* NSClippy-Prefix.pch */,
+				24D47D2516E9197500901848 /* Default.png */,
+				24D47D2716E9197500901848 /* Default@2x.png */,
+				24D47D2916E9197500901848 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24D47D3016E91D5500901848 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D2216E9197500901848 /* WZAppDelegate.h */,
+				24D47D2316E9197500901848 /* WZAppDelegate.m */,
+				24D47D3E16E9249E00901848 /* iPad.storyboard */,
+				24D47D4016E924C100901848 /* WZMainViewController.h */,
+				24D47D4116E924C100901848 /* WZMainViewController.m */,
+				24D47D1A16E9197500901848 /* Supporting Files */,
+				24D47D1216E9197500901848 /* Frameworks */,
+				24D47D1116E9197500901848 /* Products */,
+			);
+			name = Example;
+			path = NSClippy/Example;
+			sourceTree = "<group>";
+		};
+		24D47D3616E921A500901848 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D3716E922CF00901848 /* Richter.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		24D47D4B16EB51F700901848 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				24D47D4316E925AB00901848 /* Clippy.png */,
+				24D47D4C16EB522B00901848 /* Clippy.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24D47D0F16E9197500901848 /* NSClippy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24D47D2D16E9197500901848 /* Build configuration list for PBXNativeTarget "NSClippy" */;
+			buildPhases = (
+				24D47D0C16E9197500901848 /* Sources */,
+				24D47D0D16E9197500901848 /* Frameworks */,
+				24D47D0E16E9197500901848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NSClippy;
+			productName = NSClippy;
+			productReference = 24D47D1016E9197500901848 /* NSClippy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24D47D0816E9197500901848 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WZ;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Weiran Zhang";
+			};
+			buildConfigurationList = 24D47D0B16E9197500901848 /* Build configuration list for PBXProject "NSClippy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 24D47D0716E9197500901848;
+			productRefGroup = 24D47D1116E9197500901848 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24D47D0F16E9197500901848 /* NSClippy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24D47D0E16E9197500901848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24D47D1E16E9197500901848 /* InfoPlist.strings in Resources */,
+				24D47D2616E9197500901848 /* Default.png in Resources */,
+				24D47D2816E9197500901848 /* Default@2x.png in Resources */,
+				24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */,
+				24D47D3816E922CF00901848 /* Richter.png in Resources */,
+				24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */,
+				24D47D4416E925AB00901848 /* Clippy.png in Resources */,
+				24D47D4D16EB522B00901848 /* Clippy.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24D47D0C16E9197500901848 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24D47D2016E9197500901848 /* main.m in Sources */,
+				24D47D2416E9197500901848 /* WZAppDelegate.m in Sources */,
+				24D47D3316E91F5F00901848 /* WZSpriteLayer.m in Sources */,
+				24D47D3B16E922ED00901848 /* NSClippy.m in Sources */,
+				24D47D4216E924C100901848 /* WZMainViewController.m in Sources */,
+				24D47D4716E9271D00901848 /* WZAnimation.m in Sources */,
+				24D47D4A16E9284500901848 /* WZFrame.m in Sources */,
+				24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		24D47D1C16E9197500901848 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24D47D1D16E9197500901848 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		24D47D2B16E9197500901848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24D47D2C16E9197500901848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		24D47D2E16E9197500901848 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSClippy/Example/NSClippy-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/NSClippy/Example/NSClippy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		24D47D2F16E9197500901848 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSClippy/Example/NSClippy-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/NSClippy/Example/NSClippy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24D47D0B16E9197500901848 /* Build configuration list for PBXProject "NSClippy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24D47D2B16E9197500901848 /* Debug */,
+				24D47D2C16E9197500901848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24D47D2D16E9197500901848 /* Build configuration list for PBXNativeTarget "NSClippy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24D47D2E16E9197500901848 /* Debug */,
+				24D47D2F16E9197500901848 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24D47D0816E9197500901848 /* Project object */;
+}
