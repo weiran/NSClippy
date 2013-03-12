@@ -33,4 +33,7 @@
     [_clippy showAnimation:sender.titleLabel.text];
 }
 
+- (IBAction)stopAnimation:(id)sender {
+    [_clippy exitAnimation];
+}
 @end

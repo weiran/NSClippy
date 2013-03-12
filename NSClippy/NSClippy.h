@@ -12,5 +12,6 @@
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 - (void)showAnimation:(NSString *)animationName;
+- (void)exitAnimation;
 
 @end

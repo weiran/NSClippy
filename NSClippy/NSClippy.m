@@ -11,12 +11,12 @@
 #import "NSClippy.h"
 #import "WZAnimation.h"
 #import "WZFrame.h"
-#import "WZAnimator.h"
 
 @interface NSClippy () <WZAnimationDelegate>
 @property (nonatomic, strong) NSDictionary *attributes;
 @property (nonatomic) CGSize frameSize;
 @property (nonatomic, strong) UIImageView *clippy;
+@property (nonatomic, strong) WZAnimation *currentAnimation;
 @end
 
 @implementation NSClippy
@@ -33,16 +33,10 @@
     return self;
 }
 
-- (void)showAnimation:(NSString *)animationName {
-    NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
-    NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
-    CGSize imageSize = [self sizeOfImage:pathToClippy];
+- (void)layoutSubviews {
+    [super layoutSubviews];
     
-    
-    WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
-    animation.delegate = self;
-    animation.frameSize = _frameSize;
-    animation.imageSize = imageSize;
+    self.clipsToBounds = YES;
     
     if (!_clippy) {
         _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clippy.png"]];
@@ -50,14 +44,27 @@
         _clippy.autoresizingMask = UIViewAutoresizingNone;
         [self addSubview:_clippy];
     }
-    
-//    CGRect newFrame = CGRectOffset(_clippy.frame, -10, -10);
-//    _clippy.frame = newFrame;
-    
-    self.clipsToBounds = YES;
-    
-    animation.imageView = _clippy;
-    [animation showAnimation];
+}
+
+- (void)showAnimation:(NSString *)animationName {
+    if (!_currentAnimation) {
+        NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
+        NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
+        CGSize imageSize = [self sizeOfImage:pathToClippy];
+        
+        WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
+        animation.delegate = self;
+        animation.frameSize = _frameSize;
+        animation.imageSize = imageSize;
+        animation.imageView = _clippy;
+        _currentAnimation = animation;
+        
+        [animation play];
+    }
+}
+
+- (void)exitAnimation {
+    [_currentAnimation exit];
 }
 
 - (CGSize)sizeOfImage:(NSString *)imagePath {
@@ -82,14 +89,33 @@
     return CGSizeMake(width, height);
 }
 
-//- (NSNumber *)indexOfFrameForLocation:(CGPoint)frameLocation imageSize:(CGSize)imageSize frameSize:(CGSize)frameSize {
-//    NSInteger x = frameLocation.x / frameSize.width;
-//    NSInteger y = frameLocation.y / frameSize.height;
-//    
-//    NSInteger numberVertically = (imageSize.width / frameSize.width) * y;
-//    NSInteger numberHorizontally = x;
-//
-//    return @(numberVertically + numberHorizontally);
-//}
+#pragma mark - WZAnimationDelegate
+
+- (void)animationDidFinish:(NSString *)animationName withState:(WZAnimationState)animationState {
+    if (animationState == WZAnimationStateExited) {
+        _currentAnimation = nil;
+    }
+}
+
+#pragma mark - UIView
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.alpha = 0.5;
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint loc = [touch locationInView:self.superview];
+    self.center = loc;
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.alpha = 1.0;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    self.alpha = 1.0;
+}
+
 
 @end

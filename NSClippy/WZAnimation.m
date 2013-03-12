@@ -41,8 +41,13 @@
     return self;
 }
 
-- (void)showAnimation {
+- (void)play {
+    _exiting = NO;
     [self step];
+}
+
+- (void)exit {
+    _exiting = YES;
 }
 
 - (void)step {
@@ -95,8 +100,6 @@
 - (void)showCurrentFrame {
     CGRect frameRect = CGRectMake(-1 * _currentFrame.images.x, -1 * _currentFrame.images.y, _imageSize.width, _imageSize.height);
     _imageView.frame = frameRect;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//    });
 }
 
 - (BOOL)atLastFrame {

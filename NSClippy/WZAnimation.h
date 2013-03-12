@@ -30,6 +30,7 @@ typedef enum {
 @property (nonatomic, weak) id<WZAnimationDelegate> delegate;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-- (void)showAnimation;
+- (void)play;
+- (void)exit;
 
 @end
