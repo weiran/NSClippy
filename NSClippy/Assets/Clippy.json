@@ -7319,6 +7319,26 @@
                                   [0, 0]
                                   ]
                        }]
+		},
+		"TestAnimation": {
+			"frames": [{
+                       "duration": 1000,
+                       "images": [
+                                  [0, 0]
+                                  ],
+                       "exitBranch": 6
+                       }, {
+                       "duration": 1000,
+                       "images": [
+                                  [744, 3069]
+                                  ],
+                       "exitBranch": 5
+                       }, {
+                       "duration": 1000,
+                       "images": [
+                                  [0, 0]
+                                  ]
+                       }]
 		}
 	}
 }

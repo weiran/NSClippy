@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2466E44A16EF53E400503E39 /* WZAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2466E44916EF53E400503E39 /* WZAnimator.m */; };
 		24BAAD6E16EB7CAB00E4A0F8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */; };
 		24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */; };
 		24D47D1416E9197500901848 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1316E9197500901848 /* UIKit.framework */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2466E44816EF53E400503E39 /* WZAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WZAnimator.h; path = NSClippy/WZAnimator.h; sourceTree = SOURCE_ROOT; };
+		2466E44916EF53E400503E39 /* WZAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WZAnimator.m; path = NSClippy/WZAnimator.m; sourceTree = SOURCE_ROOT; };
 		24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		24BAAD7116ECD1BA00E4A0F8 /* WZBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBranch.h; sourceTree = "<group>"; };
 		24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBranch.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				24D47D4B16EB51F700901848 /* Assets */,
 				24D47D3616E921A500901848 /* Images */,
+				2466E44816EF53E400503E39 /* WZAnimator.h */,
+				2466E44916EF53E400503E39 /* WZAnimator.m */,
 				24D47D3916E922ED00901848 /* NSClippy.h */,
 				24D47D3A16E922ED00901848 /* NSClippy.m */,
 				24D47D3116E91F5F00901848 /* WZSpriteLayer.h */,
@@ -254,6 +259,7 @@
 				24D47D4716E9271D00901848 /* WZAnimation.m in Sources */,
 				24D47D4A16E9284500901848 /* WZFrame.m in Sources */,
 				24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */,
+				2466E44A16EF53E400503E39 /* WZAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

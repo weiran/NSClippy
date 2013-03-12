@@ -28,8 +28,7 @@
 }
 
 
-+ (id)layerWithImage:(CGImageRef)image;
-{
++ (id)layerWithImage:(CGImageRef)image; {
     return [[self alloc] initWithImage:(__bridge UIImage *)(image)];
 }
 

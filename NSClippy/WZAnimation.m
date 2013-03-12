@@ -28,8 +28,9 @@
     self = [super init];
     
     if (self) {
-        _currentFrameIndex = -1;
+        _currentFrameIndex = 0;
         _framesAttributes = attributes[@"frames"];
+        _exiting = NO;
         
         if ([[attributes allKeys] containsObject:@"useExitBranching"]) {
             NSString *useExitBranching = attributes[@"useExitBranching"];
@@ -78,13 +79,13 @@
 }
 
 - (NSInteger)nextAnimationFrame {
-    if (_currentFrameIndex < 0) {
+    if (!_currentFrame) {
         return 0;
     }
     
     WZFrame *currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
 
-    if (currentFrame.exitBranchIndex != nil) {
+    if (_exiting && currentFrame.exitBranchIndex != nil) {
         return [currentFrame.exitBranchIndex integerValue];
     } else if (currentFrame.branches) {
         NSInteger random = arc4random() % 100;

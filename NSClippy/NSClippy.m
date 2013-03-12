@@ -12,50 +12,44 @@
 #import "WZSpriteLayer.h"
 #import "WZAnimation.h"
 #import "WZFrame.h"
+#import "WZAnimator.h"
+
+@interface NSClippy () <WZAnimationDelegate>
+@property (nonatomic, strong) NSDictionary *attributes;
+@property (nonatomic) CGSize frameSize;
+@property (nonatomic, strong) WZSpriteLayer *clippyLayer;
+@end
 
 @implementation NSClippy
 
-
-
-
-
-- (void)presentInLayer:(CALayer *)layer {
-    NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
-    CGImageRef clippyImage = [UIImage imageWithContentsOfFile:pathToClippy].CGImage;
-    CGSize fixedSize = CGSizeMake(124, 93);
-    WZSpriteLayer *clippy = [WZSpriteLayer layerWithImage:clippyImage sampleSize:fixedSize];
-    clippy.position = CGPointMake(100,100);
+- (id)initWithAttributes:(NSDictionary *)attributes {
+    self = [super init];
     
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
-    animation.fromValue = @1;
-    animation.toValue = @9;
-    animation.duration = 0.75;
-    animation.repeatCount = HUGE_VALF;
+    if (self) {
+        _attributes = attributes;
+        _frameSize = CGSizeMake([attributes[@"framesize"][0] integerValue], [attributes[@"framesize"][1] integerValue]);
+        self.frame = CGRectMake(0, 0, _frameSize.width, _frameSize.height);
+    }
     
-    [clippy addAnimation:animation forKey:nil];
-    [layer addSublayer:clippy];
+    return self;
 }
 
-- (void)doCongratulate:(CALayer *)layer {
-    NSString *pathToClippyJSON = [[NSBundle mainBundle] pathForResource:@"Clippy.json" ofType:nil];
-    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:pathToClippyJSON] options:0 error:nil];
+- (void)showAnimation:(NSString *)animationName {
+    NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
     
-//    for (NSString *animationName in jsonData[@"animations"]) {
-//        NSDictionary *animationAttributes = jsonData[@"animations"][animationName];
-//        WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
-//    }
-    
-    NSDictionary *animationAttributes = jsonData[@"animations"][@"SendMail"];
     WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
+    animation.delegate = self;
+    animation.frameSize = _frameSize;
     
-    CGSize frameSize = CGSizeMake([jsonData[@"framesize"][0] integerValue], [jsonData[@"framesize"][1] integerValue]);
-        
     NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
     CGImageRef clippyImage = [UIImage imageWithContentsOfFile:pathToClippy].CGImage;
     CGSize imageSize = [self sizeOfImage:pathToClippy];
 
-    WZSpriteLayer *clippy = [WZSpriteLayer layerWithImage:clippyImage sampleSize:frameSize];
-    clippy.position = CGPointMake(100,100);
+    if (!_clippyLayer) {
+        _clippyLayer = [WZSpriteLayer layerWithImage:clippyImage sampleSize:_frameSize];
+        _clippyLayer.position = CGPointMake(0, 0);
+        [self.layer addSublayer:_clippyLayer];
+    }
 
     CGFloat time = 0;
     NSMutableArray *animations = [NSMutableArray new];
@@ -64,23 +58,22 @@
         WZFrame *frame = animation.frames[i];
         WZFrame *nextFrame = animation.frames[i + 1];
         
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
-        animation.fromValue = [self indexOfFrameForLocation:frame.images imageSize:imageSize frameSize:frameSize];
-        animation.toValue = [self indexOfFrameForLocation:nextFrame.images imageSize:imageSize frameSize:frameSize];
-        animation.duration = frame.duration;
-        animation.repeatCount = 0;
-        animation.beginTime = time;
+        CABasicAnimation *coreAnimation = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
+        coreAnimation.fromValue = [self indexOfFrameForLocation:frame.images imageSize:imageSize frameSize:_frameSize];
+        coreAnimation.toValue = [self indexOfFrameForLocation:nextFrame.images imageSize:imageSize frameSize:_frameSize];
+        coreAnimation.duration = frame.duration;
+        coreAnimation.repeatCount = 0;
+        coreAnimation.beginTime = time;
         
         time = time + frame.duration;
-        [animations addObject:animation];
+        [animations addObject:coreAnimation];
     }
     
     CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
     animationGroup.duration = time;
     animationGroup.animations = animations;
     
-    [clippy addAnimation:animationGroup forKey:nil];
-    [layer addSublayer:clippy];
+    [_clippyLayer addAnimation:animationGroup forKey:nil];
 }
 
 - (CGSize)sizeOfImage:(NSString *)imagePath {
@@ -113,6 +106,12 @@
     NSInteger numberHorizontally = x;
 
     return @(numberVertically + numberHorizontally);
+}
+
+#pragma mark - WZAnimationDelegate
+
+- (void)animationDidFinish:(NSString *)animationName withState:(WZAnimationState)animationState {
+    
 }
 
 @end

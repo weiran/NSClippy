@@ -8,11 +8,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface NSClippy : CALayer
+@interface NSClippy : UIView
 
-@property (nonatomic, strong) NSDictionary *framesDictionary;
+- (id)initWithAttributes:(NSDictionary *)attributes;
+- (void)showAnimation:(NSString *)animationName;
 
-
-- (void)presentInLayer:(CALayer *)layer;
-- (void)doCongratulate:(CALayer *)layer;
 @end
