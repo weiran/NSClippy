@@ -41,23 +41,8 @@
     return self;
 }
 
-- (NSArray *)frames {
-    if (!_internalFrames) {
-        NSMutableArray *frames = [NSMutableArray array];
-        
-        while (![self atLastFrame]) {
-            [self step];
-            [frames addObject:_currentFrame];
-        }
-        
-        _internalFrames = frames;
-    }
-    
-    return _internalFrames;
-}
-
-- (void)resetFrames {
-    _internalFrames = nil;
+- (void)showAnimation {
+    [self step];
 }
 
 - (void)step {
@@ -67,6 +52,12 @@
     
     if (!([self atLastFrame] && _useExitBranching)) {
         _currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
+    }
+    
+    [self showCurrentFrame];
+    
+    if (![self atLastFrame]) {
+        [self performSelector:@selector(step) withObject:nil afterDelay:_currentFrame.duration];
     }
     
     if ([_delegate respondsToSelector:@selector(animationDidFinish:withState:)] && frameChanged && [self atLastFrame]) {
@@ -99,6 +90,13 @@
     }
     
     return _currentFrameIndex + 1;
+}
+
+- (void)showCurrentFrame {
+    CGRect frameRect = CGRectMake(-1 * _currentFrame.images.x, -1 * _currentFrame.images.y, _imageSize.width, _imageSize.height);
+    _imageView.frame = frameRect;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//    });
 }
 
 - (BOOL)atLastFrame {

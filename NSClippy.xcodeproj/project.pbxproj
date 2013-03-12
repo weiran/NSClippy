@@ -19,7 +19,6 @@
 		24D47D2616E9197500901848 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2516E9197500901848 /* Default.png */; };
 		24D47D2816E9197500901848 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2716E9197500901848 /* Default@2x.png */; };
 		24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2916E9197500901848 /* Default-568h@2x.png */; };
-		24D47D3316E91F5F00901848 /* WZSpriteLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3216E91F5F00901848 /* WZSpriteLayer.m */; };
 		24D47D3516E91F7100901848 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D3416E91F7100901848 /* QuartzCore.framework */; };
 		24D47D3816E922CF00901848 /* Richter.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3716E922CF00901848 /* Richter.png */; };
 		24D47D3B16E922ED00901848 /* NSClippy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3A16E922ED00901848 /* NSClippy.m */; };
@@ -50,8 +49,6 @@
 		24D47D2516E9197500901848 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		24D47D2716E9197500901848 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		24D47D2916E9197500901848 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		24D47D3116E91F5F00901848 /* WZSpriteLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZSpriteLayer.h; sourceTree = "<group>"; };
-		24D47D3216E91F5F00901848 /* WZSpriteLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZSpriteLayer.m; sourceTree = "<group>"; };
 		24D47D3416E91F7100901848 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		24D47D3716E922CF00901848 /* Richter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Richter.png; sourceTree = "<group>"; };
 		24D47D3916E922ED00901848 /* NSClippy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSClippy.h; sourceTree = "<group>"; };
@@ -122,8 +119,6 @@
 				2466E44916EF53E400503E39 /* WZAnimator.m */,
 				24D47D3916E922ED00901848 /* NSClippy.h */,
 				24D47D3A16E922ED00901848 /* NSClippy.m */,
-				24D47D3116E91F5F00901848 /* WZSpriteLayer.h */,
-				24D47D3216E91F5F00901848 /* WZSpriteLayer.m */,
 				24D47D4516E9271D00901848 /* WZAnimation.h */,
 				24D47D4616E9271D00901848 /* WZAnimation.m */,
 				24D47D4816E9284500901848 /* WZFrame.h */,
@@ -253,7 +248,6 @@
 			files = (
 				24D47D2016E9197500901848 /* main.m in Sources */,
 				24D47D2416E9197500901848 /* WZAppDelegate.m in Sources */,
-				24D47D3316E91F5F00901848 /* WZSpriteLayer.m in Sources */,
 				24D47D3B16E922ED00901848 /* NSClippy.m in Sources */,
 				24D47D4216E924C100901848 /* WZMainViewController.m in Sources */,
 				24D47D4716E9271D00901848 /* WZAnimation.m in Sources */,

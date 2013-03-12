@@ -23,11 +23,13 @@ typedef enum {
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *framesAttributes;
 @property (nonatomic) CGSize frameSize;
-@property (nonatomic, readonly) NSArray *frames;
+@property (nonatomic) CGSize imageSize;
+@property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic) BOOL useExitBranching;
+
 @property (nonatomic, weak) id<WZAnimationDelegate> delegate;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
-- (void)resetFrames;
+- (void)showAnimation;
 
 @end

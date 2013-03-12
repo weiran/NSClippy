@@ -10,7 +10,6 @@
 
 #import "WZAnimation.h"
 #import "WZFrame.h"
-#import "WZSpriteLayer.h"
 
 @implementation WZAnimator
 

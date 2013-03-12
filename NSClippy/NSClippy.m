@@ -9,7 +9,6 @@
 #import <ImageIO/ImageIO.h>
 
 #import "NSClippy.h"
-#import "WZSpriteLayer.h"
 #import "WZAnimation.h"
 #import "WZFrame.h"
 #import "WZAnimator.h"
@@ -17,7 +16,7 @@
 @interface NSClippy () <WZAnimationDelegate>
 @property (nonatomic, strong) NSDictionary *attributes;
 @property (nonatomic) CGSize frameSize;
-@property (nonatomic, strong) WZSpriteLayer *clippyLayer;
+@property (nonatomic, strong) UIImageView *clippy;
 @end
 
 @implementation NSClippy
@@ -36,44 +35,29 @@
 
 - (void)showAnimation:(NSString *)animationName {
     NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
+    NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
+    CGSize imageSize = [self sizeOfImage:pathToClippy];
+    
     
     WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
     animation.delegate = self;
     animation.frameSize = _frameSize;
+    animation.imageSize = imageSize;
     
-    NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
-    CGImageRef clippyImage = [UIImage imageWithContentsOfFile:pathToClippy].CGImage;
-    CGSize imageSize = [self sizeOfImage:pathToClippy];
-
-    if (!_clippyLayer) {
-        _clippyLayer = [WZSpriteLayer layerWithImage:clippyImage sampleSize:_frameSize];
-        _clippyLayer.position = CGPointMake(0, 0);
-        [self.layer addSublayer:_clippyLayer];
-    }
-
-    CGFloat time = 0;
-    NSMutableArray *animations = [NSMutableArray new];
-    
-    for (int i = 0; i < animation.frames.count - 1; i++) {
-        WZFrame *frame = animation.frames[i];
-        WZFrame *nextFrame = animation.frames[i + 1];
-        
-        CABasicAnimation *coreAnimation = [CABasicAnimation animationWithKeyPath:@"sampleIndex"];
-        coreAnimation.fromValue = [self indexOfFrameForLocation:frame.images imageSize:imageSize frameSize:_frameSize];
-        coreAnimation.toValue = [self indexOfFrameForLocation:nextFrame.images imageSize:imageSize frameSize:_frameSize];
-        coreAnimation.duration = frame.duration;
-        coreAnimation.repeatCount = 0;
-        coreAnimation.beginTime = time;
-        
-        time = time + frame.duration;
-        [animations addObject:coreAnimation];
+    if (!_clippy) {
+        _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clippy.png"]];
+        _clippy.contentMode = UIViewContentModeScaleAspectFill;
+        _clippy.autoresizingMask = UIViewAutoresizingNone;
+        [self addSubview:_clippy];
     }
     
-    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
-    animationGroup.duration = time;
-    animationGroup.animations = animations;
+//    CGRect newFrame = CGRectOffset(_clippy.frame, -10, -10);
+//    _clippy.frame = newFrame;
     
-    [_clippyLayer addAnimation:animationGroup forKey:nil];
+    self.clipsToBounds = YES;
+    
+    animation.imageView = _clippy;
+    [animation showAnimation];
 }
 
 - (CGSize)sizeOfImage:(NSString *)imagePath {
@@ -98,20 +82,14 @@
     return CGSizeMake(width, height);
 }
 
-- (NSNumber *)indexOfFrameForLocation:(CGPoint)frameLocation imageSize:(CGSize)imageSize frameSize:(CGSize)frameSize {
-    NSInteger x = frameLocation.x / frameSize.width;
-    NSInteger y = frameLocation.y / frameSize.height;
-    
-    NSInteger numberVertically = (imageSize.width / frameSize.width) * y;
-    NSInteger numberHorizontally = x;
-
-    return @(numberVertically + numberHorizontally);
-}
-
-#pragma mark - WZAnimationDelegate
-
-- (void)animationDidFinish:(NSString *)animationName withState:(WZAnimationState)animationState {
-    
-}
+//- (NSNumber *)indexOfFrameForLocation:(CGPoint)frameLocation imageSize:(CGSize)imageSize frameSize:(CGSize)frameSize {
+//    NSInteger x = frameLocation.x / frameSize.width;
+//    NSInteger y = frameLocation.y / frameSize.height;
+//    
+//    NSInteger numberVertically = (imageSize.width / frameSize.width) * y;
+//    NSInteger numberHorizontally = x;
+//
+//    return @(numberVertically + numberHorizontally);
+//}
 
 @end
