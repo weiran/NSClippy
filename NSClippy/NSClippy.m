@@ -49,8 +49,7 @@
 - (void)showAnimation:(NSString *)animationName {
     if (!_currentAnimation) {
         NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
-        NSString *pathToClippy = [[NSBundle mainBundle] pathForResource:@"Clippy.png" ofType:nil];
-        CGSize imageSize = [self sizeOfImage:pathToClippy];
+        CGSize imageSize = CGSizeMake(_clippy.image.size.width, _clippy.image.size.height);
         
         WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
         animation.delegate = self;
@@ -65,28 +64,6 @@
 
 - (void)exitAnimation {
     [_currentAnimation exit];
-}
-
-- (CGSize)sizeOfImage:(NSString *)imagePath {
-    CGImageSourceRef imageSource = CGImageSourceCreateWithURL((__bridge CFURLRef)[NSURL fileURLWithPath:imagePath], NULL);
-    
-    CGFloat width = 0.0f, height = 0.0f;
-    CFDictionaryRef imageProperties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, NULL);
-    if (imageProperties != NULL) {
-        CFNumberRef widthNum  = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelWidth);
-        if (widthNum != NULL) {
-            CFNumberGetValue(widthNum, kCFNumberFloatType, &width);
-        }
-        
-        CFNumberRef heightNum = CFDictionaryGetValue(imageProperties, kCGImagePropertyPixelHeight);
-        if (heightNum != NULL) {
-            CFNumberGetValue(heightNum, kCFNumberFloatType, &height);
-        }
-        
-        CFRelease(imageProperties);
-    }
-
-    return CGSizeMake(width, height);
 }
 
 #pragma mark - WZAnimationDelegate

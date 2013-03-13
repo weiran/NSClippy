@@ -43,6 +43,10 @@
 
 - (void)play {
     _exiting = NO;
+    
+    // set timeout
+    [self performSelector:@selector(exit) withObject:nil afterDelay:5];
+    
     [self step];
 }
 
