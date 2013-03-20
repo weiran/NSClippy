@@ -28,22 +28,15 @@
         _attributes = attributes;
         _frameSize = CGSizeMake([attributes[@"framesize"][0] integerValue], [attributes[@"framesize"][1] integerValue]);
         self.frame = CGRectMake(0, 0, _frameSize.width, _frameSize.height);
-    }
-    
-    return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    self.clipsToBounds = YES;
-    
-    if (!_clippy) {
+        self.clipsToBounds = YES;
+        
         _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clippy.png"]];
         _clippy.contentMode = UIViewContentModeScaleAspectFill;
         _clippy.autoresizingMask = UIViewAutoresizingNone;
         [self addSubview:_clippy];
     }
+    
+    return self;
 }
 
 - (void)showAnimation:(NSString *)animationName {
