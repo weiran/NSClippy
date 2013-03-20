@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSDictionary *attributes;
 @property (nonatomic) CGFloat duration;
-@property (nonatomic) CGPoint images;
+@property (nonatomic, strong) NSValue *images;
 @property (nonatomic, strong) NSNumber *exitBranchIndex;
 @property (nonatomic, strong) NSArray *branches;
 

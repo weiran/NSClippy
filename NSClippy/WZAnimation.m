@@ -45,7 +45,7 @@
     _exiting = NO;
     
     // set timeout
-    [self performSelector:@selector(exit) withObject:nil afterDelay:5];
+    [self performSelector:@selector(exit) withObject:nil afterDelay:10];
     
     [self step];
 }
@@ -58,6 +58,8 @@
     NSInteger newFrameIndex = MIN([self nextAnimationFrame], _framesAttributes.count - 1);
     BOOL frameChanged = !_currentFrame || _currentFrameIndex != newFrameIndex;
     _currentFrameIndex = newFrameIndex;
+    
+    NSLog(@"Frame: %d, duration: %f", _currentFrameIndex, _currentFrame.duration);
     
     if (!([self atLastFrame] && _useExitBranching)) {
         _currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
@@ -85,7 +87,7 @@
     
     WZFrame *currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
 
-    if (_exiting && currentFrame.exitBranchIndex != nil) {
+    if (_exiting && currentFrame.exitBranchIndex) {
         return [currentFrame.exitBranchIndex integerValue];
     } else if (currentFrame.branches) {
         NSInteger random = arc4random() % 100;
@@ -102,8 +104,15 @@
 }
 
 - (void)showCurrentFrame {
-    CGRect frameRect = CGRectMake(-1 * _currentFrame.images.x, -1 * _currentFrame.images.y, _imageSize.width, _imageSize.height);
-    _imageView.frame = frameRect;
+    if (_currentFrame.images) {
+        CGPoint point = [_currentFrame.images CGPointValue];
+        CGRect frameRect = CGRectMake(-1 * point.x, -1 * point.y, _imageSize.width, _imageSize.height);
+        _imageView.frame = frameRect;
+        _imageView.hidden = NO;
+    } else {
+        // hide image view if no image set
+        _imageView.hidden = YES;
+    }
 }
 
 - (BOOL)atLastFrame {

@@ -21,7 +21,10 @@
         _duration = durationMiliseconds / 1000.0f;
         
         NSArray *imageArray = attributes[@"images"][0];
-        _images = CGPointMake([imageArray[0] integerValue], [imageArray[1] integerValue]);
+        if (imageArray) {
+            CGPoint imagePoint = CGPointMake([imageArray[0] integerValue], [imageArray[1] integerValue]);
+            _images = [NSValue valueWithCGPoint:imagePoint];
+        }
         
         if ([[_attributes allKeys] containsObject:@"exitBranch"]) {
             _exitBranchIndex = @([_attributes[@"exitBranch"] integerValue]);
