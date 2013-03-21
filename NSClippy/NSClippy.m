@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Weiran Zhang. All rights reserved.
 //
 
-#import <ImageIO/ImageIO.h>
+#import "Base64.h"
 
 #import "NSClippy.h"
 #import "WZAnimation.h"
@@ -17,23 +17,40 @@
 @property (nonatomic) CGSize frameSize;
 @property (nonatomic, strong) UIImageView *clippy;
 @property (nonatomic, strong) WZAnimation *currentAnimation;
+@property (nonatomic, strong) NSDictionary *sounds;
 @end
 
 @implementation NSClippy
 
-- (id)initWithAttributes:(NSDictionary *)attributes {
+- (id)initWithAgent:(NSString *)agent {
     self = [super init];
     
     if (self) {
-        _attributes = attributes;
-        _frameSize = CGSizeMake([attributes[@"framesize"][0] integerValue], [attributes[@"framesize"][1] integerValue]);
+        // get paths
+        NSString *pathToAnimations = [NSString stringWithFormat:@"%@-animations.json", agent];
+        NSString *pathToImage = [NSString stringWithFormat:@"%@-image.png", agent];
+        NSString *pathToSounds = [NSString stringWithFormat:@"%@-sounds.json", agent];
+        
+        // set attributes
+        _attributes = [self attributesForJSON:pathToAnimations];
+        _frameSize = CGSizeMake([_attributes[@"framesize"][0] integerValue], [_attributes[@"framesize"][1] integerValue]);
         self.frame = CGRectMake(0, 0, _frameSize.width, _frameSize.height);
         self.clipsToBounds = YES;
         
-        _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Clippy.png"]];
+        // set image
+        _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:pathToImage]];
         _clippy.contentMode = UIViewContentModeScaleAspectFill;
         _clippy.autoresizingMask = UIViewAutoresizingNone;
         [self addSubview:_clippy];
+
+        // set sounds
+        NSDictionary *soundsAttributes = [self attributesForJSON:pathToSounds];
+        NSMutableDictionary *soundsDictionary = [[NSMutableDictionary alloc] init];
+        for (NSString *key in [soundsAttributes allKeys]) {
+            NSData *audioData = [NSData dataWithBase64EncodedString:soundsAttributes[key]];
+            [soundsDictionary setValue:audioData forKey:key];
+        }
+        _sounds = soundsDictionary;
     }
     
     return self;
@@ -49,6 +66,7 @@
         animation.frameSize = _frameSize;
         animation.imageSize = imageSize;
         animation.imageView = _clippy;
+        animation.sounds = _sounds;
         _currentAnimation = animation;
         
         [animation play];
@@ -87,5 +105,15 @@
     self.alpha = 1.0;
 }
 
+
+#pragma mark - Helpers
+
+- (NSDictionary *)attributesForJSON:(NSString *)path {
+    NSError *error = nil;
+    NSString *fullPath = [[NSBundle mainBundle] pathForResource:path ofType:nil];
+    NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:fullPath] options:0 error:&error];
+    
+    return JSON;
+}
 
 @end

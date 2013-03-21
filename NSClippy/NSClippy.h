@@ -10,7 +10,7 @@
 
 @interface NSClippy : UIView
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
+- (id)initWithAgent:(NSString *)agent;
 - (void)showAnimation:(NSString *)animationName;
 - (void)exitAnimation;
 

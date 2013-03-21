@@ -12,19 +12,21 @@ typedef enum {
 } WZAnimationState;
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 @protocol WZAnimationDelegate <NSObject>
 @optional
 - (void)animationDidFinish:(NSString *)animationName withState:(WZAnimationState)animationState;
 @end
 
-@interface WZAnimation : NSObject
+@interface WZAnimation : NSObject <AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray *framesAttributes;
 @property (nonatomic) CGSize frameSize;
 @property (nonatomic) CGSize imageSize;
 @property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, weak) NSDictionary *sounds;
 @property (nonatomic) BOOL useExitBranching;
 
 @property (nonatomic, weak) id<WZAnimationDelegate> delegate;

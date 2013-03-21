@@ -25,7 +25,7 @@
         NSString *pathToClippyJSON = [[NSBundle mainBundle] pathForResource:@"Clippy.json" ofType:nil];
         NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:pathToClippyJSON] options:0 error:nil];
 
-        _clippy = [[NSClippy alloc] initWithAttributes:jsonData];
+        _clippy = [[NSClippy alloc] initWithAgent:@"clippy"];
         _clippy.frame = CGRectMake(100, 100, _clippy.frame.size.width, _clippy.frame.size.height);
         [self.view addSubview:_clippy];
     }

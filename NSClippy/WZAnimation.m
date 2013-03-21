@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Weiran Zhang. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 #import "WZAnimation.h"
 #import "WZFrame.h"
 #import "WZBranch.h"
@@ -19,6 +22,7 @@
     WZFrame *_currentFrame;
     NSArray *_internalFrames;
     BOOL _exiting;
+    AVAudioPlayer *_audioPlayer;
 }
 @end
 
@@ -58,14 +62,13 @@
     NSInteger newFrameIndex = MIN([self nextAnimationFrame], _framesAttributes.count - 1);
     BOOL frameChanged = !_currentFrame || _currentFrameIndex != newFrameIndex;
     _currentFrameIndex = newFrameIndex;
-    
-    NSLog(@"Frame: %d, duration: %f", _currentFrameIndex, _currentFrame.duration);
-    
+        
     if (!([self atLastFrame] && _useExitBranching)) {
         _currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
     }
     
     [self showCurrentFrame];
+    [self playCurrentFrameSound];
     
     if (![self atLastFrame]) {
         [self performSelector:@selector(step) withObject:nil afterDelay:_currentFrame.duration];
@@ -112,6 +115,27 @@
     } else {
         // hide image view if no image set
         _imageView.hidden = YES;
+    }
+}
+
+- (void)playCurrentFrameSound {
+    if (_currentFrame.sound) {
+        NSError *error = nil;
+        NSData *sound = (NSData *)_sounds[_currentFrame.sound];
+        
+        // write the NSData audio to disk as AVAudioPlayer is better at reading from disk
+        NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , [NSString stringWithFormat:@"%@_audio", _currentFrame.sound]];
+        [sound writeToFile:filePath atomically:YES];
+        
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath] error:&error];
+        _audioPlayer.delegate = self;
+        
+        if (!error) {
+            [_audioPlayer play];
+        } else {
+            NSLog(@"Error playing sound: %@", _currentFrame.sound);
+        }
     }
 }
 

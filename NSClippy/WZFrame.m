@@ -41,6 +41,10 @@
             
             _branches = branches;
         }
+        
+        if ([[_attributes allKeys] containsObject:@"sound"]) {
+            _sound = _attributes[@"sound"];
+        }
     }
     
     return self;

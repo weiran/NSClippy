@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24BAAD6E16EB7CAB00E4A0F8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */; };
 		24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */; };
+		24C68E0E16FB22E100B3A82F /* clippy-sounds.json in Resources */ = {isa = PBXBuildFile; fileRef = 24C68E0D16FB22E100B3A82F /* clippy-sounds.json */; };
+		24C68E1116FB232700B3A82F /* clippy-animations.json in Resources */ = {isa = PBXBuildFile; fileRef = 24C68E0F16FB232700B3A82F /* clippy-animations.json */; };
+		24C68E1216FB232700B3A82F /* clippy-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C68E1016FB232700B3A82F /* clippy-image.png */; };
+		24C68E1516FB2D7200B3A82F /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C68E1416FB2D7200B3A82F /* Base64.m */; };
+		24C68E1716FB307300B3A82F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C68E1616FB307300B3A82F /* AVFoundation.framework */; };
 		24D47D1416E9197500901848 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1316E9197500901848 /* UIKit.framework */; };
 		24D47D1616E9197500901848 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1516E9197500901848 /* Foundation.framework */; };
 		24D47D1816E9197500901848 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D1716E9197500901848 /* CoreGraphics.framework */; };
@@ -22,16 +26,19 @@
 		24D47D3B16E922ED00901848 /* NSClippy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3A16E922ED00901848 /* NSClippy.m */; };
 		24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3E16E9249E00901848 /* iPad.storyboard */; };
 		24D47D4216E924C100901848 /* WZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4116E924C100901848 /* WZMainViewController.m */; };
-		24D47D4416E925AB00901848 /* Clippy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D4316E925AB00901848 /* Clippy.png */; };
 		24D47D4716E9271D00901848 /* WZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4616E9271D00901848 /* WZAnimation.m */; };
 		24D47D4A16E9284500901848 /* WZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4916E9284500901848 /* WZFrame.m */; };
-		24D47D4D16EB522B00901848 /* Clippy.json in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D4C16EB522B00901848 /* Clippy.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		24BAAD7116ECD1BA00E4A0F8 /* WZBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZBranch.h; sourceTree = "<group>"; };
 		24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZBranch.m; sourceTree = "<group>"; };
+		24C68E0D16FB22E100B3A82F /* clippy-sounds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clippy-sounds.json"; sourceTree = "<group>"; };
+		24C68E0F16FB232700B3A82F /* clippy-animations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "clippy-animations.json"; sourceTree = "<group>"; };
+		24C68E1016FB232700B3A82F /* clippy-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clippy-image.png"; sourceTree = "<group>"; };
+		24C68E1316FB2D7200B3A82F /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		24C68E1416FB2D7200B3A82F /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		24C68E1616FB307300B3A82F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		24D47D1016E9197500901848 /* NSClippy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSClippy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D47D1316E9197500901848 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24D47D1516E9197500901848 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,12 +58,10 @@
 		24D47D3E16E9249E00901848 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 		24D47D4016E924C100901848 /* WZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMainViewController.h; sourceTree = "<group>"; };
 		24D47D4116E924C100901848 /* WZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMainViewController.m; sourceTree = "<group>"; };
-		24D47D4316E925AB00901848 /* Clippy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Clippy.png; path = ../Images/Clippy.png; sourceTree = "<group>"; };
 		24D47D4516E9271D00901848 /* WZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAnimation.h; sourceTree = "<group>"; };
 		24D47D4616E9271D00901848 /* WZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAnimation.m; sourceTree = "<group>"; };
 		24D47D4816E9284500901848 /* WZFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZFrame.h; sourceTree = "<group>"; };
 		24D47D4916E9284500901848 /* WZFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZFrame.m; sourceTree = "<group>"; };
-		24D47D4C16EB522B00901848 /* Clippy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Clippy.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24BAAD6E16EB7CAB00E4A0F8 /* ImageIO.framework in Frameworks */,
+				24C68E1716FB307300B3A82F /* AVFoundation.framework in Frameworks */,
 				24D47D3516E91F7100901848 /* QuartzCore.framework in Frameworks */,
 				24D47D1416E9197500901848 /* UIKit.framework in Frameworks */,
 				24D47D1616E9197500901848 /* Foundation.framework in Frameworks */,
@@ -75,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24C68E0C16FB227200B3A82F /* Clippy */ = {
+			isa = PBXGroup;
+			children = (
+				24C68E0F16FB232700B3A82F /* clippy-animations.json */,
+				24C68E1016FB232700B3A82F /* clippy-image.png */,
+				24C68E0D16FB22E100B3A82F /* clippy-sounds.json */,
+			);
+			path = Clippy;
+			sourceTree = "<group>";
+		};
 		24D47D0716E9197500901848 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +110,7 @@
 		24D47D1216E9197500901848 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				24BAAD6D16EB7CAB00E4A0F8 /* ImageIO.framework */,
+				24C68E1616FB307300B3A82F /* AVFoundation.framework */,
 				24D47D3416E91F7100901848 /* QuartzCore.framework */,
 				24D47D1316E9197500901848 /* UIKit.framework */,
 				24D47D1516E9197500901848 /* Foundation.framework */,
@@ -117,6 +132,8 @@
 				24D47D4916E9284500901848 /* WZFrame.m */,
 				24BAAD7116ECD1BA00E4A0F8 /* WZBranch.h */,
 				24BAAD7216ECD1BA00E4A0F8 /* WZBranch.m */,
+				24C68E1316FB2D7200B3A82F /* Base64.h */,
+				24C68E1416FB2D7200B3A82F /* Base64.m */,
 			);
 			path = NSClippy;
 			sourceTree = "<group>";
@@ -154,8 +171,7 @@
 		24D47D4B16EB51F700901848 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				24D47D4316E925AB00901848 /* Clippy.png */,
-				24D47D4C16EB522B00901848 /* Clippy.json */,
+				24C68E0C16FB227200B3A82F /* Clippy */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -217,8 +233,9 @@
 				24D47D2816E9197500901848 /* Default@2x.png in Resources */,
 				24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */,
 				24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */,
-				24D47D4416E925AB00901848 /* Clippy.png in Resources */,
-				24D47D4D16EB522B00901848 /* Clippy.json in Resources */,
+				24C68E0E16FB22E100B3A82F /* clippy-sounds.json in Resources */,
+				24C68E1116FB232700B3A82F /* clippy-animations.json in Resources */,
+				24C68E1216FB232700B3A82F /* clippy-image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +253,7 @@
 				24D47D4716E9271D00901848 /* WZAnimation.m in Sources */,
 				24D47D4A16E9284500901848 /* WZFrame.m in Sources */,
 				24BAAD7316ECD1BA00E4A0F8 /* WZBranch.m in Sources */,
+				24C68E1516FB2D7200B3A82F /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

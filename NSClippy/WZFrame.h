@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSValue *images;
 @property (nonatomic, strong) NSNumber *exitBranchIndex;
 @property (nonatomic, strong) NSArray *branches;
+@property (nonatomic, strong) NSString *sound;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
