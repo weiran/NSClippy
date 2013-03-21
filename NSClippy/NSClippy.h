@@ -10,6 +10,8 @@
 
 @interface NSClippy : UIView
 
+@property (nonatomic) BOOL mute;
+
 - (id)initWithAgent:(NSString *)agent;
 - (void)showAnimation:(NSString *)animationName;
 - (void)exitAnimation;

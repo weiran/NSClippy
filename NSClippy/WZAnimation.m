@@ -35,6 +35,7 @@
         _currentFrameIndex = 0;
         _framesAttributes = attributes[@"frames"];
         _exiting = NO;
+        _mute = NO;
         
         if ([[attributes allKeys] containsObject:@"useExitBranching"]) {
             NSString *useExitBranching = attributes[@"useExitBranching"];
@@ -119,7 +120,7 @@
 }
 
 - (void)playCurrentFrameSound {
-    if (_currentFrame.sound) {
+    if (_currentFrame.sound && !_mute) {
         NSError *error = nil;
         NSData *sound = (NSData *)_sounds[_currentFrame.sound];
         
