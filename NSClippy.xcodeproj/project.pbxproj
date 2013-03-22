@@ -24,10 +24,11 @@
 		24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D2916E9197500901848 /* Default-568h@2x.png */; };
 		24D47D3516E91F7100901848 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D47D3416E91F7100901848 /* QuartzCore.framework */; };
 		24D47D3B16E922ED00901848 /* NSClippy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D3A16E922ED00901848 /* NSClippy.m */; };
-		24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3E16E9249E00901848 /* iPad.storyboard */; };
+		24D47D3F16E9249F00901848 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D47D3E16E9249E00901848 /* Storyboard~iPad.storyboard */; };
 		24D47D4216E924C100901848 /* WZMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4116E924C100901848 /* WZMainViewController.m */; };
 		24D47D4716E9271D00901848 /* WZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4616E9271D00901848 /* WZAnimation.m */; };
 		24D47D4A16E9284500901848 /* WZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D47D4916E9284500901848 /* WZFrame.m */; };
+		24D7F70716FCA6FF00D73341 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D7F70616FCA6FF00D73341 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,13 +56,14 @@
 		24D47D3416E91F7100901848 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		24D47D3916E922ED00901848 /* NSClippy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSClippy.h; sourceTree = "<group>"; };
 		24D47D3A16E922ED00901848 /* NSClippy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSClippy.m; sourceTree = "<group>"; };
-		24D47D3E16E9249E00901848 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
+		24D47D3E16E9249E00901848 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		24D47D4016E924C100901848 /* WZMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZMainViewController.h; sourceTree = "<group>"; };
 		24D47D4116E924C100901848 /* WZMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZMainViewController.m; sourceTree = "<group>"; };
 		24D47D4516E9271D00901848 /* WZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZAnimation.h; sourceTree = "<group>"; };
 		24D47D4616E9271D00901848 /* WZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZAnimation.m; sourceTree = "<group>"; };
 		24D47D4816E9284500901848 /* WZFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZFrame.h; sourceTree = "<group>"; };
 		24D47D4916E9284500901848 /* WZFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZFrame.m; sourceTree = "<group>"; };
+		24D7F70616FCA6FF00D73341 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +159,10 @@
 			children = (
 				24D47D2216E9197500901848 /* WZAppDelegate.h */,
 				24D47D2316E9197500901848 /* WZAppDelegate.m */,
-				24D47D3E16E9249E00901848 /* iPad.storyboard */,
 				24D47D4016E924C100901848 /* WZMainViewController.h */,
 				24D47D4116E924C100901848 /* WZMainViewController.m */,
+				24D7F70616FCA6FF00D73341 /* Storyboard.storyboard */,
+				24D47D3E16E9249E00901848 /* Storyboard~iPad.storyboard */,
 				24D47D1A16E9197500901848 /* Supporting Files */,
 				24D47D1216E9197500901848 /* Frameworks */,
 				24D47D1116E9197500901848 /* Products */,
@@ -232,10 +235,11 @@
 				24D47D2616E9197500901848 /* Default.png in Resources */,
 				24D47D2816E9197500901848 /* Default@2x.png in Resources */,
 				24D47D2A16E9197500901848 /* Default-568h@2x.png in Resources */,
-				24D47D3F16E9249F00901848 /* iPad.storyboard in Resources */,
+				24D47D3F16E9249F00901848 /* Storyboard~iPad.storyboard in Resources */,
 				24C68E0E16FB22E100B3A82F /* clippy-sounds.json in Resources */,
 				24C68E1116FB232700B3A82F /* clippy-animations.json in Resources */,
 				24C68E1216FB232700B3A82F /* clippy-image.png in Resources */,
+				24D7F70716FCA6FF00D73341 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +339,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSClippy/Example/NSClippy-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/NSClippy/Example/NSClippy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -346,6 +351,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NSClippy/Example/NSClippy-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/NSClippy/Example/NSClippy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
