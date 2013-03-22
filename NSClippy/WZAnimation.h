@@ -28,7 +28,7 @@ typedef enum {
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, weak) NSDictionary *sounds;
 @property (nonatomic) BOOL useExitBranching;
-@property (nonatomic) BOOL mute;
+@property (nonatomic) BOOL muted;
 
 @property (nonatomic, weak) id<WZAnimationDelegate> delegate;
 

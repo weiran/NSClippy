@@ -36,6 +36,7 @@
         _frameSize = CGSizeMake([_attributes[@"framesize"][0] integerValue], [_attributes[@"framesize"][1] integerValue]);
         self.frame = CGRectMake(0, 0, _frameSize.width, _frameSize.height);
         self.clipsToBounds = YES;
+        _draggable = YES;
         
         // set image
         _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:pathToImage]];
@@ -56,6 +57,13 @@
     return self;
 }
 
+- (void)show {
+    CGSize imageSize = CGSizeMake(_clippy.image.size.width, _clippy.image.size.height);
+    CGRect frameRect = CGRectMake(0, 0, imageSize.width, imageSize.height);
+    _clippy.frame = frameRect;
+    _clippy.hidden = NO;
+}
+
 - (void)showAnimation:(NSString *)animationName {
     if (!_currentAnimation) {
         NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
@@ -67,6 +75,7 @@
         animation.imageSize = imageSize;
         animation.imageView = _clippy;
         animation.sounds = _sounds;
+        animation.muted = _muted;
         _currentAnimation = animation;
         
         [animation play];
@@ -87,24 +96,13 @@
 
 #pragma mark - UIView
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.alpha = 0.5;
-}
-
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint loc = [touch locationInView:self.superview];
-    self.center = loc;
+    if (_draggable) {
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInView:self.superview];
+        self.center = location;
+    }
 }
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.alpha = 1.0;
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.alpha = 1.0;
-}
-
 
 #pragma mark - Helpers
 
