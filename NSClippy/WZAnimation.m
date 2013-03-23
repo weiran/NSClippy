@@ -56,7 +56,9 @@
 }
 
 - (void)exit {
-    _exiting = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _exiting = YES;
+    });
 }
 
 - (void)step {
@@ -68,11 +70,16 @@
         _currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
     }
     
-    [self showCurrentFrame];
-    [self playCurrentFrameSound];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showCurrentFrame];
+        [self playCurrentFrameSound];
+    });
     
     if (![self atLastFrame]) {
-        [self performSelector:@selector(step) withObject:nil afterDelay:_currentFrame.duration];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_currentFrame.duration * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            [self step];
+        });
     }
     
     if ([_delegate respondsToSelector:@selector(animationDidFinish:withState:)] && frameChanged && [self atLastFrame]) {
@@ -116,7 +123,7 @@
     } else {
         // hide image view if no image set
         _imageView.hidden = YES;
-    }
+    } 
 }
 
 - (void)playCurrentFrameSound {

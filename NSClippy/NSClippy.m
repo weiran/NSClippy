@@ -78,7 +78,9 @@
         animation.muted = _muted;
         _currentAnimation = animation;
         
-        [animation play];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+           [animation play]; 
+        });
     }
 }
 

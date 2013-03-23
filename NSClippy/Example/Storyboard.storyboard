@@ -45,6 +45,9 @@
                     <navigationItem key="navigationItem" id="50J-2k-Krf">
                         <barButtonItem key="leftBarButtonItem" title="Stop Animation" id="iJZ-DU-oeI">
                             <color key="tintColor" red="0.74433992346938771" green="0.06487642861416193" blue="0.097798771728722728" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="stopAnimation:" destination="7a3-65-9sh" id="XlX-UV-AgV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -71,19 +74,6 @@
             <point key="canvasLocation" x="-131" y="17"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="WZMainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WZMainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showAnimation:" candidateClass="UIButton"/>
-                <relationship kind="action" name="stopAnimation:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
