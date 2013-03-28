@@ -50,15 +50,16 @@
     _exiting = NO;
     
     // set timeout
-    [self performSelector:@selector(exit) withObject:nil afterDelay:10];
+    int timeout = 5; // in seconds
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self performSelector:@selector(exit) withObject:nil afterDelay:timeout];
+    });
     
     [self step];
 }
 
 - (void)exit {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        _exiting = YES;
-    });
+    _exiting = YES;
 }
 
 - (void)step {
