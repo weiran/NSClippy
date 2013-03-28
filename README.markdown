@@ -8,6 +8,18 @@ NSClippy is a port of [ClippyJS](https://www.smore.com/clippy-js) for that nosta
 
 ![NSClippy screenshot](Screenshot.png)
 
+## How to use
+
+Adding Clippy to your view:
+
+	NSClippy *clippy = [[NSClippy alloc] initWithAgent:@"clippy"];
+	[self.view addSubview:clippy];
+	[clippy show];
+
+And to show an animation:
+
+	[clippy showAnimation:@"GetArtsy"];
+    
 ## Installation
 
 Either manually copy all the files from the NSClippy directory (excluding the Example) into your project, or you can add it via [Cocoapods](http://cocoapods.org) by putting this line into your podfile:
