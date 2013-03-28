@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/weiran/NSClippy.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.0'
   s.source_files = 'NSClippy'
+  s.exclude_files = 'NSClippy/Example'
   s.resources = "NSClippy/Assets/Clippy/*.*"
   s.framework  = 'AVFoundation'
   s.requires_arc = true
