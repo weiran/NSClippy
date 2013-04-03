@@ -8,6 +8,13 @@ NSClippy is a port of [ClippyJS](https://www.smore.com/clippy-js) for that nosta
 
 ![NSClippy screenshot](Screenshot.png)
 
+## Requirements
+
+* Xcode 4.5 or higher
+* Apple LLVM compiler
+* iOS 5.0 or higher
+* ARC
+
 ## How to use
 
 Adding Clippy to your view:
