@@ -38,6 +38,7 @@ Either manually copy all the files from the NSClippy directory (excluding the Ex
 
 ## Todo
 
+* Mac support
 * Show random idle animation
 * Add speech bubble pop over
 * Queue for animations
