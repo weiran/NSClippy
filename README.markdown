@@ -4,9 +4,11 @@
 
 NSClippy is a port of [ClippyJS](https://www.smore.com/clippy-js) for that nostalgic hit on iOS. My thanks to [smore](https://www.smore.com) for providing the original sprites and sounds.
 
-## Screenshots
+## Screenshot and video
 
 ![NSClippy screenshot](Screenshot.png)
+
+<iframe src="http://player.vimeo.com/video/63323245" width="250" height="488" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 
 ## Requirements
 
