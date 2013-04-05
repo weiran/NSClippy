@@ -8,7 +8,7 @@ NSClippy is a port of [ClippyJS](https://www.smore.com/clippy-js) for that nosta
 
 ![NSClippy screenshot](Screenshot.png)
 
-<iframe src="http://player.vimeo.com/video/63323245" width="250" height="488" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+[View video on Vimeo](https://vimeo.com/63323245).
 
 ## Requirements
 
