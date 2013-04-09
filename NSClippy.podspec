@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.2"
   s.license	     = "MIT"
   s.summary      = "Clippy, your office friend, for iOS."
-  s.homepage     = "http://weiranzhang.com/NSClippy"
+  s.homepage     = "http://weiranzhang.com/nsclippy"
   s.author       = { "Weiran Zhang" => "weiran@zhang.me.uk" }
   s.source       = { :git => "https://github.com/weiran/NSClippy.git", :tag => "0.0.2" }
   s.platform     = :ios, '5.0'
