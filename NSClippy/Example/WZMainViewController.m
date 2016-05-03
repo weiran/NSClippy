@@ -27,19 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _clippy = [[NSClippy alloc] initWithAgent:@"clippy"];
-    _clippy.frame = CGRectMake(100, 100, _clippy.frame.size.width, _clippy.frame.size.height);
-    [self.view addSubview:_clippy];
+    self.clippy = [[NSClippy alloc] initWithAgent:@"clippy"];
+    self.clippy.frame = CGRectMake(100, 100, self.clippy.frame.size.width, self.clippy.frame.size.height);
+    [self.view addSubview:self.clippy];
 
-    [_clippy show];
+    [self.clippy show];
 
     if (!IS_IPAD) {
         NSString *fullPath = [[NSBundle mainBundle] pathForResource:@"clippy-animations.json" ofType:nil];
         NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:fullPath] options:0 error:nil];
-        _animations = [JSON[@"animations"] allKeys];
+        self.animations = [JSON[@"animations"] allKeys];
         
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
     }
 }
 
@@ -51,11 +51,11 @@
 #pragma mark - iPad
 
 - (IBAction)showAnimation:(UIButton *)sender {
-    [_clippy showAnimation:sender.titleLabel.text];
+    [self.clippy showAnimation:sender.titleLabel.text];
 }
 
 - (IBAction)stopAnimation:(id)sender {
-    [_clippy exitAnimation];
+    [self.clippy exitAnimation];
 }
 
 #pragma mark - iPhone
@@ -63,19 +63,19 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _animations.count;
+    return self.animations.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AnimationCell"];
-    cell.textLabel.text = _animations[indexPath.row];
+    cell.textLabel.text = self.animations[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [_clippy showAnimation:cell.textLabel.text];
+    [self.clippy showAnimation:cell.textLabel.text];
     
     [self performSelector:@selector(deselectCell:) withObject:cell afterDelay:0.3];
 }

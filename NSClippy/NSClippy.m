@@ -32,17 +32,17 @@
         NSString *pathToSounds = [NSString stringWithFormat:@"%@-sounds.json", agent];
         
         // set attributes
-        _attributes = [self attributesForJSON:pathToAnimations];
-        _frameSize = CGSizeMake([_attributes[@"framesize"][0] integerValue], [_attributes[@"framesize"][1] integerValue]);
-        self.frame = CGRectMake(0, 0, _frameSize.width, _frameSize.height);
+        self.attributes = [self attributesForJSON:pathToAnimations];
+        self.frameSize = CGSizeMake([self.attributes[@"framesize"][0] integerValue], [self.attributes[@"framesize"][1] integerValue]);
+        self.frame = CGRectMake(0, 0, self.frameSize.width, self.frameSize.height);
         self.clipsToBounds = YES;
-        _draggable = YES;
+        self.draggable = YES;
         
         // set image
-        _clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:pathToImage]];
-        _clippy.contentMode = UIViewContentModeScaleAspectFill;
-        _clippy.autoresizingMask = UIViewAutoresizingNone;
-        [self addSubview:_clippy];
+        self.clippy = [[UIImageView alloc] initWithImage:[UIImage imageNamed:pathToImage]];
+        self.clippy.contentMode = UIViewContentModeScaleAspectFill;
+        self.clippy.autoresizingMask = UIViewAutoresizingNone;
+        [self addSubview:self.clippy];
 
         // set sounds
         NSDictionary *soundsAttributes = [self attributesForJSON:pathToSounds];
@@ -51,32 +51,32 @@
             NSData *audioData = [NSData dataWithBase64EncodedString:soundsAttributes[key]];
             [soundsDictionary setValue:audioData forKey:key];
         }
-        _sounds = soundsDictionary;
+        self.sounds = soundsDictionary;
     }
     
     return self;
 }
 
 - (void)show {
-    CGSize imageSize = CGSizeMake(_clippy.image.size.width, _clippy.image.size.height);
+    CGSize imageSize = CGSizeMake(self.clippy.image.size.width, self.clippy.image.size.height);
     CGRect frameRect = CGRectMake(0, 0, imageSize.width, imageSize.height);
-    _clippy.frame = frameRect;
-    _clippy.hidden = NO;
+    self.clippy.frame = frameRect;
+    self.clippy.hidden = NO;
 }
 
 - (void)showAnimation:(NSString *)animationName {
-    if (!_currentAnimation) {
-        NSDictionary *animationAttributes = _attributes[@"animations"][animationName];
-        CGSize imageSize = CGSizeMake(_clippy.image.size.width, _clippy.image.size.height);
+    if (!self.currentAnimation) {
+        NSDictionary *animationAttributes = self.attributes[@"animations"][animationName];
+        CGSize imageSize = CGSizeMake(self.clippy.image.size.width, self.clippy.image.size.height);
         
         WZAnimation *animation = [[WZAnimation alloc] initWithAttributes:animationAttributes];
         animation.delegate = self;
-        animation.frameSize = _frameSize;
+        animation.frameSize = self.frameSize;
         animation.imageSize = imageSize;
-        animation.imageView = _clippy;
-        animation.sounds = _sounds;
-        animation.muted = _muted;
-        _currentAnimation = animation;
+        animation.imageView = self.clippy;
+        animation.sounds = self.sounds;
+        animation.muted = self.muted;
+        self.currentAnimation = animation;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
            [animation play]; 
@@ -85,21 +85,21 @@
 }
 
 - (void)exitAnimation {
-    [_currentAnimation exit];
+    [self.currentAnimation exit];
 }
 
 #pragma mark - WZAnimationDelegate
 
 - (void)animationDidFinish:(NSString *)animationName withState:(WZAnimationState)animationState {
     if (animationState == WZAnimationStateExited) {
-        _currentAnimation = nil;
+        self.currentAnimation = nil;
     }
 }
 
 #pragma mark - UIView
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_draggable) {
+    if (self.draggable) {
         UITouch *touch = [touches anyObject];
         CGPoint location = [touch locationInView:self.superview];
         self.center = location;

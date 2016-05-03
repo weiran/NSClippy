@@ -1,6 +1,6 @@
 //
 //  WZAnimation.m
-//  NSClippy
+//  NSClippy;
 //
 //  Created by Weiran Zhang on 07/03/2013.
 //  Copyright (c) 2013 Weiran Zhang. All rights reserved.
@@ -17,13 +17,14 @@
 #import <NSObjCRuntime.h>
 #endif
 
-@interface WZAnimation () {
-    NSInteger _currentFrameIndex;
-    WZFrame *_currentFrame;
-    NSArray *_internalFrames;
-    BOOL _exiting;
-    AVAudioPlayer *_audioPlayer;
-}
+@interface WZAnimation ()
+
+@property (nonatomic) NSInteger currentFrameIndex;
+@property (nonatomic, strong) WZFrame *currentFrame;
+@property (nonatomic, strong) NSArray *internalFrames;
+@property (nonatomic) BOOL exiting;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+
 @end
 
 @implementation WZAnimation
@@ -32,14 +33,14 @@
     self = [super init];
     
     if (self) {
-        _currentFrameIndex = 0;
-        _framesAttributes = attributes[@"frames"];
-        _exiting = NO;
-        _muted = NO;
+        self.currentFrameIndex = 0;
+        self.framesAttributes = attributes[@"frames"];
+        self.exiting = NO;
+        self.muted = NO;
         
         if ([[attributes allKeys] containsObject:@"useExitBranching"]) {
             NSString *useExitBranching = attributes[@"useExitBranching"];
-            _useExitBranching = [useExitBranching isEqualToString:@"true"];
+            self.useExitBranching = [useExitBranching isEqualToString:@"true"];
         }
     }
     
@@ -47,7 +48,7 @@
 }
 
 - (void)play {
-    _exiting = NO;
+    self.exiting = NO;
     
     // set timeout
     int timeout = 5; // in seconds
@@ -59,16 +60,16 @@
 }
 
 - (void)exit {
-    _exiting = YES;
+    self.exiting = YES;
 }
 
 - (void)step {
-    NSInteger newFrameIndex = MIN([self nextAnimationFrame], _framesAttributes.count - 1);
-    BOOL frameChanged = !_currentFrame || _currentFrameIndex != newFrameIndex;
-    _currentFrameIndex = newFrameIndex;
+    NSInteger newFrameIndex = MIN([self nextAnimationFrame], self.framesAttributes.count - 1);
+    BOOL frameChanged = !self.currentFrame || self.currentFrameIndex != newFrameIndex;
+    self.currentFrameIndex = newFrameIndex;
         
-    if (!([self atLastFrame] && _useExitBranching)) {
-        _currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
+    if (!([self atLastFrame] && self.useExitBranching)) {
+        self.currentFrame = [[WZFrame alloc] initWithAttributes:self.framesAttributes[_currentFrameIndex]];
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -77,29 +78,29 @@
     });
     
     if (![self atLastFrame]) {
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_currentFrame.duration * NSEC_PER_SEC));
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.currentFrame.duration * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             [self step];
         });
     }
     
-    if ([_delegate respondsToSelector:@selector(animationDidFinish:withState:)] && frameChanged && [self atLastFrame]) {
-        if (_useExitBranching && !_exiting) {
-            [_delegate animationDidFinish:_name withState:WZAnimationStateWaiting];
+    if ([self.delegate respondsToSelector:@selector(animationDidFinish:withState:)] && frameChanged && [self atLastFrame]) {
+        if (self.useExitBranching && !self.exiting) {
+            [self.delegate animationDidFinish:self.name withState:WZAnimationStateWaiting];
         } else {
-            [_delegate animationDidFinish:_name withState:WZAnimationStateExited];
+            [self.delegate animationDidFinish:self.name withState:WZAnimationStateExited];
         }
     }
 }
 
 - (NSInteger)nextAnimationFrame {
-    if (!_currentFrame) {
+    if (!self.currentFrame) {
         return 0;
     }
     
-    WZFrame *currentFrame = [[WZFrame alloc] initWithAttributes:_framesAttributes[_currentFrameIndex]];
+    WZFrame *currentFrame = [[WZFrame alloc] initWithAttributes:self.framesAttributes[self.currentFrameIndex]];
 
-    if (_exiting && currentFrame.exitBranchIndex) {
+    if (self.exiting && currentFrame.exitBranchIndex) {
         return [currentFrame.exitBranchIndex integerValue];
     } else if (currentFrame.branches) {
         NSInteger random = arc4random() % 100;
@@ -112,44 +113,44 @@
         }
     }
     
-    return _currentFrameIndex + 1;
+    return self.currentFrameIndex + 1;
 }
 
 - (void)showCurrentFrame {
-    if (_currentFrame.images) {
-        CGPoint point = [_currentFrame.images CGPointValue];
-        CGRect frameRect = CGRectMake(-1 * point.x, -1 * point.y, _imageSize.width, _imageSize.height);
-        _imageView.frame = frameRect;
-        _imageView.hidden = NO;
+    if (self.currentFrame.images) {
+        CGPoint point = [self.currentFrame.images CGPointValue];
+        CGRect frameRect = CGRectMake(-1 * point.x, -1 * point.y, self.imageSize.width, self.imageSize.height);
+        self.imageView.frame = frameRect;
+        self.imageView.hidden = NO;
     } else {
         // hide image view if no image set
-        _imageView.hidden = YES;
+        self.imageView.hidden = YES;
     } 
 }
 
 - (void)playCurrentFrameSound {
-    if (_currentFrame.sound && !_muted) {
+    if (self.currentFrame.sound && !self.muted) {
         NSError *error = nil;
-        NSData *sound = (NSData *)_sounds[_currentFrame.sound];
+        NSData *sound = (NSData *)self.sounds[self.currentFrame.sound];
         
         // write the NSData audio to disk as AVAudioPlayer is better at reading from disk
         NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , [NSString stringWithFormat:@"%@_audio", _currentFrame.sound]];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.mp3", docDirPath , [NSString stringWithFormat:@"%@_audio", self.currentFrame.sound]];
         [sound writeToFile:filePath atomically:YES];
         
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath] error:&error];
-        _audioPlayer.delegate = self;
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:filePath] error:&error];
+        self.audioPlayer.delegate = self;
         
         if (!error) {
-            [_audioPlayer play];
+            [self.audioPlayer play];
         } else {
-            NSLog(@"Error playing sound: %@", _currentFrame.sound);
+            NSLog(@"Error playing sound: %@", self.currentFrame.sound);
         }
     }
 }
 
 - (BOOL)atLastFrame {
-    return _currentFrameIndex >= (int)_framesAttributes.count - 1;
+    return self.currentFrameIndex >= (int)self.framesAttributes.count - 1;
 }
 
 @end

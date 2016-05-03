@@ -14,8 +14,8 @@
     self = [super self];
     
     if (self) {
-        _frameIndex = [attributes[@"frameIndex"] integerValue];
-        _weight = [attributes[@"weight"] integerValue];
+        self.frameIndex = [attributes[@"frameIndex"] integerValue];
+        self.weight = [attributes[@"weight"] integerValue];
     }
     
     return self;

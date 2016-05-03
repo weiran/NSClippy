@@ -15,23 +15,23 @@
     self = [super init];
     
     if (self) {
-        _attributes = attributes;
+        self.attributes = attributes;
         
         NSInteger durationMiliseconds = [attributes[@"duration"] integerValue];
-        _duration = durationMiliseconds / 1000.0f;
+        self.duration = durationMiliseconds / 1000.0f;
         
         NSArray *imageArray = attributes[@"images"][0];
         if (imageArray) {
             CGPoint imagePoint = CGPointMake([imageArray[0] integerValue], [imageArray[1] integerValue]);
-            _images = [NSValue valueWithCGPoint:imagePoint];
+            self.images = [NSValue valueWithCGPoint:imagePoint];
         }
         
-        if ([[_attributes allKeys] containsObject:@"exitBranch"]) {
-            _exitBranchIndex = @([_attributes[@"exitBranch"] integerValue]);
+        if ([[self.attributes allKeys] containsObject:@"exitBranch"]) {
+            self.exitBranchIndex = @([self.attributes[@"exitBranch"] integerValue]);
         }
         
-        if ([[_attributes allKeys] containsObject:@"branching"]) {
-            NSArray *branchesAttributes = _attributes[@"branching"][@"branches"];
+        if ([[self.attributes allKeys] containsObject:@"branching"]) {
+            NSArray *branchesAttributes = self.attributes[@"branching"][@"branches"];
             NSMutableArray *branches = [NSMutableArray array];
             
             for (NSDictionary *branchAttributes in branchesAttributes) {
@@ -39,11 +39,11 @@
                 [branches addObject:branch];
             }
             
-            _branches = branches;
+            self.branches = branches;
         }
         
-        if ([[_attributes allKeys] containsObject:@"sound"]) {
-            _sound = _attributes[@"sound"];
+        if ([[self.attributes allKeys] containsObject:@"sound"]) {
+            self.sound = self.attributes[@"sound"];
         }
     }
     
